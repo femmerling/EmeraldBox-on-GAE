@@ -236,13 +236,13 @@ def add_single_views_controller_template(model_name, model_components):
     controller_file.write("\tsingle_"+model_name+" = "+model_name.title()+".query("+model_name.title()+"."+model_name+"_id == "+model_name+"_id).get()\n")
     controller_file.write("\tif single_"+model_name+":\n")
     controller_file.write("\t\t"+model_name+" = single_"+model_name+".dto()\n")
-    controller_file.write("\tresult = dict("+model_name+" = "+model_name+")\n")
+    controller_file.write("\tresult = "+model_name+"\n")
     controller_file.write("\treturn result\n\n")
 
     controller_file.write("@app.route('/" + model_name + "/<"+model_name+"_id>.json')\n")
     controller_file.write("def get_single_" + model_name + "_json("+model_name+"_id):\n")
     controller_file.write("\t#this is the controller to get single entry in json format\n")
-    controller_file.write("\tresult = json.dumps(get_single_"+model_name+"("+model_name+"_id))\n")
+    controller_file.write("\tresult = json.dumps(dict("+model_name+"=get_single_"+model_name+"("+model_name+"_id)))\n")
     controller_file.write("\treturn result\n\n")
 
     controller_file.write("@app.route('/" + model_name + "/<"+model_name+"_id>')\n")
