@@ -8,9 +8,13 @@ app_config_path = os.path.join(BASEDIR, 'app.yaml')
 flask_temp_path = os.path.join(box_path, 'flask-pkg/')
 jinja_temp_path = os.path.join(box_path, 'jinja2-pkg/')
 werkzeug_temp_path = os.path.join(box_path, 'werkzeug-pkg/')
+markupsafe_temp_path = os.path.join(box_path, 'markupsafe-pkg/')
+itsdangerous_temp_path = os.path.join(box_path, 'itsdangerous-pkg/')
 flask_path = os.path.join(box_path, 'flask')
 jinja_path = os.path.join(box_path, 'jinja2')
 werkzeug_path = os.path.join(box_path, 'werkzeug')
+markupsafe_path = os.path.join(box_path, 'markupsafe')
+itsdangerous_path = os.path.join(box_path, 'itsdangerous')
 app_name = None
 
 if len(sys.argv) > 1:
@@ -20,6 +24,8 @@ print "\nCreating boxes..."
 call(['mkdir',flask_temp_path])
 call(['mkdir',jinja_temp_path])
 call(['mkdir',werkzeug_temp_path])
+call(['mkdir',markupsafe_temp_path])
+call(['mkdir',itsdangerous_temp_path])
 
 print "\nGetting Flask\n"
 call(['git', 'clone', 'https://github.com/mitsuhiko/flask.git', flask_temp_path])
@@ -29,12 +35,17 @@ print "\nGetting Jinja2\n"
 call(['git', 'clone', 'https://github.com/mitsuhiko/jinja2.git', jinja_temp_path])
 call(['ln','-s',jinja_temp_path+'jinja2/',jinja_path])
 
-
 print "\nGetting Werkzeug\n"
 call(['git', 'clone', 'https://github.com/mitsuhiko/werkzeug.git', werkzeug_temp_path])
 call(['ln','-s',werkzeug_temp_path+'werkzeug/',werkzeug_path])
 
+print "\nGetting Markupsafe\n"
+call(['git', 'clone', 'https://github.com/mitsuhiko/markupsafe.git', markupsafe_temp_path])
+call(['ln','-s',markupsafe_temp_path+'markupsafe/',markupsafe_path])
 
+print "\nGetting Itsdangerous\n"
+call(['git', 'clone', 'https://github.com/mitsuhiko/itsdangerous.git', itsdangerous_temp_path])
+call(['ln','-s',itsdangerous_temp_path+'itsdangerous/',itsdangerous_path])
 
 if app_name:
 	print "\nCreating config file\n"
