@@ -1,8 +1,8 @@
 from subprocess import call
 import os.path
 import sys
+from settings import BASEDIR
 
-BASEDIR = os.path.abspath(os.path.dirname(__file__))
 box_path = os.path.join(BASEDIR, 'box/')
 app_config_path = os.path.join(BASEDIR, 'app.yaml')
 flask_temp_path = os.path.join(box_path, 'flask-pkg/')
@@ -14,7 +14,7 @@ flask_path = os.path.join(box_path, 'flask')
 jinja_path = os.path.join(box_path, 'jinja2')
 werkzeug_path = os.path.join(box_path, 'werkzeug')
 markupsafe_path = os.path.join(box_path, 'markupsafe')
-itsdangerous_path = os.path.join(box_path, 'itsdangerous')
+itsdangerous_path = os.path.join(box_path, 'itsdangerous.py')
 app_name = None
 
 if len(sys.argv) > 1:
@@ -45,7 +45,7 @@ call(['ln','-s',markupsafe_temp_path+'markupsafe/',markupsafe_path])
 
 print "\nGetting Itsdangerous\n"
 call(['git', 'clone', 'https://github.com/mitsuhiko/itsdangerous.git', itsdangerous_temp_path])
-call(['ln','-s',itsdangerous_temp_path+'itsdangerous/',itsdangerous_path])
+call(['ln','-s',itsdangerous_temp_path+'itsdangerous.py',itsdangerous_path])
 
 if app_name:
 	print "\nCreating config file\n"

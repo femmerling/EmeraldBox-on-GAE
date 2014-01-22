@@ -25,9 +25,9 @@ def new_parser(passed_object, request_data):
     Use this for creation of new object by passing an instantiated 
     empty object into the passed_object variable
 	"""
-	for item in request_data.values:
-		if hasattr(passed_object, item) and request_data.values.get(item) != None:
-			setattr(passed_object, item, request_data.values.get(item))
+	for item, value in request_data.values.iteritems():
+		if hasattr(passed_object, item) and value is not None:
+			setattr(passed_object, item, value)
 	return passed_object
 
 def edit_parser(passed_object, request_data):

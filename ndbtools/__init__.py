@@ -1,0 +1,2 @@
+from datawrappers import ValidatedIntegerProperty
+from datawrappers import ValidatedFloatProperty
