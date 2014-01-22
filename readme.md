@@ -12,6 +12,8 @@ The basic Blossom's skeleton repo is https://github.com/blossom/flask-gae-skelet
 
 People tend to get confused when developing for Google App Engine. Due to the success in developing EmeraldBox for normal web platform, we decided to port it for google App Engine.
 
+In the latest addition, we have added ndbtools which provides autocasting properties when you assign values to float or integer properties as well as value parsers that will help you save a number of lines to be written, resulting in a cleaner and more readable code.
+
 Just like in the basic EmeraldBox, we are standing in the shoulder of giants, leveraging the following technologies and knitting them to work hand-in-hand:
 * Twitter Bootstrap
 * Flask
@@ -23,7 +25,7 @@ To run EmeraldBox on GAE, you need python 2.7 and Google App Engine SDK
 
 You can add your desired python package from git repo by running:
 
-    ./box.py -a <repo address>
+    ./box.py -a <repo address> <package name>
 
 Your basic template comes with bootstrap to help you worry less about the UX. You can change this to meet your needs.
 
