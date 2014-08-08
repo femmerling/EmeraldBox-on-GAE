@@ -10,11 +10,13 @@ jinja_temp_path = os.path.join(box_path, 'jinja2-pkg/')
 werkzeug_temp_path = os.path.join(box_path, 'werkzeug-pkg/')
 markupsafe_temp_path = os.path.join(box_path, 'markupsafe-pkg/')
 itsdangerous_temp_path = os.path.join(box_path, 'itsdangerous-pkg/')
+click_temp_path = os.path.join(box_path, 'click-pkg')
 flask_path = os.path.join(box_path, 'flask')
 jinja_path = os.path.join(box_path, 'jinja2')
 werkzeug_path = os.path.join(box_path, 'werkzeug')
 markupsafe_path = os.path.join(box_path, 'markupsafe')
 itsdangerous_path = os.path.join(box_path, 'itsdangerous.py')
+click_path = os.path.join(box_path, 'click')
 app_name = None
 
 if len(sys.argv) > 1:
@@ -26,6 +28,7 @@ call(['mkdir',jinja_temp_path])
 call(['mkdir',werkzeug_temp_path])
 call(['mkdir',markupsafe_temp_path])
 call(['mkdir',itsdangerous_temp_path])
+call(['mkdir',click_temp_path])
 
 print "\nGetting Flask\n"
 call(['git', 'clone', 'https://github.com/mitsuhiko/flask.git', flask_temp_path])
@@ -46,6 +49,10 @@ call(['ln','-s',markupsafe_temp_path+'markupsafe/',markupsafe_path])
 print "\nGetting Itsdangerous\n"
 call(['git', 'clone', 'https://github.com/mitsuhiko/itsdangerous.git', itsdangerous_temp_path])
 call(['ln','-s',itsdangerous_temp_path+'itsdangerous.py',itsdangerous_path])
+
+print "\nGetting Click\n"
+call(['git', 'clone', 'https://github.com/mitsuhiko/click.git', click_temp_path])
+call(['ln','-s',click_temp_path+'click/',click_path])
 
 if app_name:
 	print "\nCreating config file\n"
